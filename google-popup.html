@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Authentication with Popup</title>
+
+  <!-- Material Design Theming -->
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Import and configure the Firebase SDK -->
+  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+  <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+  <script src="/__/firebase/5.7.0/firebase-app.js"></script>
+  <script src="/__/firebase/5.7.0/firebase-auth.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+  <script type="text/javascript">
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClFPB4zPzo9IXvXPMTW9XEW6LJ8fv0xy8",
+    authDomain: "artthingy-55130.firebaseapp.com",
+    databaseURL: "https://artthingy-55130.firebaseio.com",
+    projectId: "artthingy-55130",
+    storageBucket: "artthingy-55130.appspot.com",
+    messagingSenderId: "273529183842"
+  };
+  firebase.initializeApp(config);
+  var provider = new firebase.auth.GoogleAuthProvider();
+function signIn() {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  console.log(user);
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+}
+func
+  </script>
+</head>
+<body>
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <p>Sign in with your Google account below.</p>
+
+          <!-- Button that handles sign-in/sign-out -->
+          <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in">Sign in with Google</button>
+    </div>
+  </main>
+</div>
+</body>
+</html>
